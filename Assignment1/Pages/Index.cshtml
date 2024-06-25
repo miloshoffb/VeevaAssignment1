@@ -1,0 +1,51 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<div class="row">
+    <div class="col-12">
+        <h1 class="display-6">Enter Patient Information</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label asp-for="PatientInput.HeightCm" class="form-label"></label>
+                <input asp-for="PatientInput.HeightCm" class="form-control w-100px" autocomplete="off">
+                <span asp-validation-for="PatientInput.HeightCm" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PatientInput.WeightKg" class="form-label"></label>
+                <input asp-for="PatientInput.WeightKg" class="form-control w-100px" autocomplete="off">
+                <span asp-validation-for="PatientInput.WeightKg" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PatientInput.Gender" class="form-label"></label>
+                <select asp-for="PatientInput.Gender" class="form-select w-auto">
+                    <option value="Man">Man</option>
+                    <option value="Woman">Woman</option>
+                    <option value="Non-binary">Non-binary</option>
+                    <option value="Not Listed">Not Listed</option>
+                    <option value="Prefer not to respond">Prefer not to respond</option>
+                </select>
+                <span asp-validation-for="PatientInput.Gender" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PatientInput.Age" class="form-label"></label>
+                <input asp-for="PatientInput.Age" class="form-control w-100px" autocomplete="off">
+                <span asp-validation-for="PatientInput.Age" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="PatientInput.BsaFormula" class="form-label"></label>
+                <select asp-for="PatientInput.BsaFormula" class="form-select w-auto">
+                    <option value="@BsaFormula.DuBois">Du Bois</option>
+                    <option value="@BsaFormula.Mosteller">Mosteller </option>
+                </select>
+                <span asp-validation-for="PatientInput.BsaFormula" class="text-danger"></span>
+            </div>
+            <input type="submit" class="btn btn-primary" />
+            <button type="reset" class="btn btn-secondary">Clear</button>
+        </form>
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
